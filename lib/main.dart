@@ -43,10 +43,21 @@ class MyAnimeWidget extends StatefulWidget {
   MyAnimeWidget({Key? key}) : super(key: key);
   late _MyAnimePageState _state;
 
-  final TextButton button = TextButton(
-    style: TextButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),
-    onPressed: null,
-    child: const Text('Hello World'),
+  final Widget buttons = Column(
+    children: [
+      TextButton(
+        style: TextButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),
+        onPressed: (){
+          print('😃');
+        },
+        child: const Text('Hello World'),
+      ),
+      TextButton(
+        style: TextButton.styleFrom(textStyle: const TextStyle(fontSize: 20)),
+        onPressed: (){print('👿');},
+        child: const Text('Hello World'),
+      ),
+    ],
   );
 
   void hideButton() {
@@ -85,6 +96,6 @@ class _MyAnimePageState extends State<MyAnimeWidget>
 
   @override
   Widget build(BuildContext context) {
-    return FadeTransition(opacity: _animation, child: widget.button,);
+    return FadeTransition(opacity: _animation, child: widget.buttons,);
   }
 }
